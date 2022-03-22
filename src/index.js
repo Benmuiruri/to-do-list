@@ -2,6 +2,7 @@ import './style.css';
 import Tick from './assets/tick-box.png';
 import ViewMore from './assets/view-more.png';
 import Refresh from './assets/refresh.png';
+import Enter from './assets/enter-key.png';
 
 const task1 = {
   index: 0,
@@ -44,6 +45,26 @@ function component() {
   listTitle.textContent = 'My To Do List';
   listDivTitle.appendChild(listTitle);
   listDiv.appendChild(listDivTitle);
+  const addTask = document.createElement('div');
+  addTask.className = 'add-task';
+  addTask.innerHTML = `
+  <input type="text" placeholder="Add a new task.." class="new-list-item add-item">
+  <img class="enter-key" src="${Enter}" alt="enter-key">
+  `;
+  listDiv.appendChild(addTask);
+
+  // Add list icon
+  const tickIcon = new Image();
+  tickIcon.src = Tick;
+  logoElement.appendChild(tickIcon);
+
+  // Add refresh icon
+  const refereshIconDiv = document.createElement('div');
+  refereshIconDiv.className = 'refresh-icon';
+  const refreshIcon = new Image();
+  refreshIcon.src = Refresh;
+  refereshIconDiv.appendChild(refreshIcon);
+  listDivTitle.appendChild(refereshIconDiv);
 
   toDoList.forEach((list) => {
     const listItem = document.createElement('div');
@@ -56,17 +77,10 @@ function component() {
     listDiv.appendChild(listItem);
   });
 
-  // Add list icon
-  const tickIcon = new Image();
-  tickIcon.src = Tick;
-  logoElement.appendChild(tickIcon);
-
-  // Add refresh icon
-  const refereshIconDiv = document.createElement('div');
-  const refreshIcon = new Image();
-  refreshIcon.src = Refresh;
-  refereshIconDiv.appendChild(refreshIcon);
-  listDivTitle.appendChild(refereshIconDiv);
+  const clearContent = document.createElement('div');
+  clearContent.className = 'clear-content';
+  clearContent.innerHTML = 'Clear all completed';
+  listDiv.appendChild(clearContent);
 
   // Append elements to container
   container.appendChild(logoElement);
