@@ -1,12 +1,17 @@
 import './style.css';
-// import _ from 'lodash';
+import Tick from './assets/tick-box.png';
 
-// function component() {
-//   const element = document.createElement('div');
+function component() {
+  const container = document.createElement('div');
+  const logoElement = document.createElement('div');
 
-//   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  const tickIcon = new Image();
+  tickIcon.src = Tick;
 
-//   return element;
-// }
+  logoElement.appendChild(tickIcon);
+  container.appendChild(logoElement);
 
-// document.body.appendChild(component())
+  return container;
+}
+
+document.body.appendChild(component());
