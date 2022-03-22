@@ -11,17 +11,17 @@ const task1 = {
 const task2 = {
   index: 1,
   completed: true,
-  description: 'Wash the car',
+  description: 'Wash the dishes',
 };
 const task3 = {
   index: 2,
   completed: true,
-  description: 'Wash the car',
+  description: 'Wash the house',
 };
 const task4 = {
   index: 3,
   completed: true,
-  description: 'Wash the car',
+  description: 'Finish project',
 };
 const task5 = {
   index: 4,
