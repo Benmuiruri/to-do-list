@@ -5,13 +5,11 @@
 
 <h1 align="center"> My Portlio Website </h1>
 
-> The above screenshot shows how the To Do List will appear once it's finished. 
-
-You can find the current live version at this [link](https://benmuiruri.github.io/to-do-list/)
+> The above screenshot shows how the To Do List will appear once it's finished.
 
 ## Built With
 
-- **HTML** and **CSS**
+- **HTML** and **CSS** and **Javascript**
 
 ## Getting Started
 
@@ -19,7 +17,10 @@ To get a local copy up and running follow these setup steps below.
 
 ### Setup
 
-- Simply fork this project and it should be ready for you to edit as you see fit.
+- Simply fork this project 
+- run `npm i `to install all dependencies
+- run `npm run build` to bundle the project with webpack, and
+- run `npm start` to launch the application
 - In case you run into any errors please raise an [issue](https://github.com/Benmuiruri/to-do-list/issues).
 
 ## Authors
@@ -42,7 +43,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Huge thanks to [Didier Sangwa](https://github.com/sangwa7), [Nabil](https://github.com/NabilHY), and [Solomon](https://github.com/Achilles-Dev) for their contribution to the project
+- Huge thanks to [Sodiq](https://github.com/deyemiobaa) for his contribution.
 
 ## 📝 License
 
