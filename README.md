@@ -6,6 +6,7 @@
 <h1 align="center"> My Portlio Website </h1>
 
 > The above screenshot shows how the To Do List will appear once it's finished.
+> Live Link coming soon once project is finished
 
 ## Built With
 
@@ -17,7 +18,7 @@ To get a local copy up and running follow these setup steps below.
 
 ### Setup
 
-- Simply fork this project 
+- Simply fork this project
 - run `npm i `to install all dependencies
 - run `npm run build` to bundle the project with webpack, and
 - run `npm start` to launch the application
