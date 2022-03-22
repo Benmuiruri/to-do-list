@@ -7,6 +7,8 @@
 
 > The above screenshot shows how the To Do List will appear once it's finished. 
 
+You can find the current live version at this [link](https://benmuiruri.github.io/to-do-list/)
+
 ## Built With
 
 - **HTML** and **CSS**
@@ -18,7 +20,7 @@ To get a local copy up and running follow these setup steps below.
 ### Setup
 
 - Simply fork this project and it should be ready for you to edit as you see fit.
-- In case you run into any errors please raise an [issue](https://github.com/Benmuiruri/my-portfolio/issues).
+- In case you run into any errors please raise an [issue](https://github.com/Benmuiruri/to-do-list/issues).
 
 ## Authors
 
