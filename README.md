@@ -1,16 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 <p align="center">Desktop view</p>
-<img src="./assets/desktop.png">
-
-<p align="center"> Mobile view</p>
-<img src="./assets/mobile.png"> 
+<img src="./src/assets/to-do-list.png">
 
 <h1 align="center"> My Portlio Website </h1>
 
-> This is a repository for my personal portfolio that I will be updating with the Projects I build. 
-> Visit my [Portfolio Website](https://benmuiruri.github.io/my-portfolio/) to view my projects.
-> Reach out to me for any collaboration. 
+> The above screenshot shows how the To Do List will appear once it's finished. 
 
 ## Built With
 
