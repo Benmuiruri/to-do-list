@@ -61,14 +61,12 @@ function component() {
   tickIcon.src = Tick;
   logoElement.appendChild(tickIcon);
 
+  // Add refresh icon
   const refereshIconDiv = document.createElement('div');
-
   const refreshIcon = new Image();
   refreshIcon.src = Refresh;
   refereshIconDiv.appendChild(refreshIcon);
   listDivTitle.appendChild(refereshIconDiv);
-
-  // Create card to hold to do list
 
   // Append elements to container
   container.appendChild(logoElement);
