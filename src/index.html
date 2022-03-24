@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My To Do lists</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <script
+      src="https://kit.fontawesome.com/bc719f0ade.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1 class="page-header">Minimalist</h1>
@@ -15,15 +18,21 @@
       <div class="list-div">
         <div class="title">
           <h4>My To Do List</h4>
-          <div class="refresh-icon">
-            <img src="./assets/refresh.png" alt="refresh" />
-          </div>
+          <i class="fa-solid fa-arrows-rotate refresh-icon"></i>
         </div>
         <div class="add-task">
-          <input required type="text" placeholder="Add a task..."  id="input-task"><i class="fas fa-check" id="add"></i>
+          <input
+            required
+            type="text"
+            placeholder="Add a task..."
+            id="input-task"
+            class="new-list-item"
+          /><i class="fas fa-check" id="add-new-task"></i>
         </div>
-        <div class="current-tasks" id="list"></div>
-        <span id="completed">Clear all completed</span>
+        <div class="current-tasks"></div>
+        <div class="clear-content">
+          <span id="completed">Clear all completed</span>
+        </div>
       </div>
     </div>
   </body>
