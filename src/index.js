@@ -43,7 +43,6 @@ const populateTasks = (arr) => {
 
     // Double click the input area to display the delete icon
     description.addEventListener('dblclick', () => {
-      setStorage(arr);
       newDiv.classList.add('edit-mode');
       newDiv.innerHTML = `<input type="checkbox" id="${i}"></input><input id = "update${i}" class="update" type="text" value = "${arr[i].description}"></input><i id="delete${i}" class="fas fa-trash-alt"></i>`;
       document.getElementById(`update${i}`).focus();
