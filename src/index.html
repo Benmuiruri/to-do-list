@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My To Do lists</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   </head>
   <body>
     <h1 class="page-header">Minimalist</h1>
+    <div class="main-container">
+      <div class="logo-img">
+        <img src="./assets/tick-box.png" alt="list icon" />
+      </div>
+      <div class="list-div">
+        <div class="title">
+          <h4>My To Do List</h4>
+          <div class="refresh-icon">
+            <img src="./assets/refresh.png" alt="refresh" />
+          </div>
+        </div>
+        <div class="add-task">
+          <input required type="text" placeholder="Add a task..."  id="input-task"><i class="fas fa-check" id="add"></i>
+        </div>
+        <div class="current-tasks" id="list"></div>
+        <span id="completed">Clear all completed</span>
+      </div>
+    </div>
   </body>
 </html>
