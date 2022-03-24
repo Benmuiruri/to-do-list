@@ -98,3 +98,13 @@ html {
   background-color: #f6f6f6;
   text-decoration: underline;
 }
+
+.task-description {
+  border: 0;
+  background: none;
+  outline: none;
+}
+
+.edit-mode {
+  background: yellow;
+}
