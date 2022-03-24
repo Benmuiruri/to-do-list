@@ -2,7 +2,7 @@
 import { setStorage } from './store-list.js';
 
 export default (arr) => {
-  let addTask = document.getElementById('input-task').value;
+  const addTask = document.getElementById('input-task').value;
   let taskIndex = 0;
 
   arr.forEach((element) => {
@@ -16,7 +16,7 @@ export default (arr) => {
     completed: false,
     index: taskIndex + 1,
   };
-  addTask = '';
+  document.getElementById('input-task').value = '';
   arr.push(newTask);
   setStorage(arr);
   return arr;

@@ -108,3 +108,9 @@ html {
 .edit-mode {
   background: yellow;
 }
+
+.update {
+  outline: none;
+  border: none;
+  background: yellow;
+}

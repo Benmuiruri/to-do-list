@@ -1,4 +1,5 @@
 import './style.css';
+import Tick from './assets/tick-box.png';
 import ViewMore from './assets/view-more.png';
 import addNewTask from './add-task.js';
 import { setStorage, getStorage } from './store-list.js';
@@ -6,11 +7,17 @@ import Delete from './remove-task.js';
 
 const addTask = document.getElementById('add-new-task');
 const currentTasks = document.querySelector('.current-tasks');
+const logoImg = document.querySelector('.logo-img');
+
+// Add Img Logo
+const tickIcon = new Image();
+tickIcon.src = Tick;
+logoImg.appendChild(tickIcon);
 
 const tasks = getStorage();
 
+// Delete an item from local storage
 const removeIndex = (index) => {
-  // Remove only one item by clicking the trash bin
   setStorage(Delete.deleteOne(getStorage(), index));
   populateTasks(getStorage()); // eslint-disable-line
 };
@@ -18,6 +25,7 @@ const removeIndex = (index) => {
 const populateTasks = (arr) => {
   currentTasks.innerHTML = '';
   for (let i = 0; i <= arr.length; i += 1) {
+    // Add an item to local storage
     const newDiv = document.createElement('div');
     newDiv.className = 'to-do-item';
     const tick = document.createElement('input');
@@ -33,6 +41,7 @@ const populateTasks = (arr) => {
     newDiv.append(menuImg);
     currentTasks.appendChild(newDiv);
 
+    // Double click the input area to display the delete icon
     description.addEventListener('dblclick', () => {
       setStorage(arr);
       newDiv.classList.add('edit-mode');
