@@ -98,11 +98,11 @@ html {
   background-color: #f6f6f6;
 }
 .button {
-    background-color: #ad0d0d ;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    text-decoration: none;
+  background-color: #ad0d0d;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 .button:hover {
