@@ -2,6 +2,7 @@ import './style.css';
 import Tick from './assets/tick-box.png';
 import ViewMore from './assets/view-more.png';
 import addNewTask from './add-task.js';
+import editTask from './edit-task.js';
 import { setStorage, getStorage } from './store-list.js';
 import Delete from './remove-task.js';
 
@@ -49,6 +50,15 @@ const populateTasks = (arr) => {
       document.getElementById(`delete${i}`).addEventListener('click', () => {
         removeIndex(i);
       });
+    });
+    document.body.addEventListener('click', (e) => {
+      // Update task on clicking body
+      if (!newDiv.contains(e.target) && document.getElementById(`update${i}`)) {
+        newDiv.classList.remove('edit-mode');
+        const arr = getStorage();
+        setStorage(editTask(arr, i));
+        populateTasks(editTask(arr, i));
+      }
     });
   }
   setStorage(arr);
