@@ -49,7 +49,7 @@ html {
 }
 
 .refresh-icon {
-  padding: 0.5em 2em 0 0;
+  padding: 1.5em 2em 0 0;
 }
 
 .list-div {
@@ -97,4 +97,20 @@ html {
   font-size: 1.1rem;
   background-color: #f6f6f6;
   text-decoration: underline;
+}
+
+.task-description {
+  border: 0;
+  background: none;
+  outline: none;
+}
+
+.edit-mode {
+  background: yellow;
+}
+
+.update {
+  outline: none;
+  border: none;
+  background: yellow;
 }

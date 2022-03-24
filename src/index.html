@@ -4,8 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My To Do lists</title>
+    <script
+      src="https://kit.fontawesome.com/bc719f0ade.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1 class="page-header">Minimalist</h1>
+    <div class="main-container">
+      <div class="logo-img"></div>
+      <div class="list-div">
+        <div class="title">
+          <h4>My To Do List</h4>
+          <i class="fa-solid fa-arrows-rotate refresh-icon"></i>
+        </div>
+        <div class="add-task">
+          <input
+            required
+            type="text"
+            placeholder="Add a task..."
+            id="input-task"
+            class="new-list-item"
+          /><i class="fa-solid fa-arrow-right-to-bracket" id="add-new-task"></i>
+        </div>
+        <div class="current-tasks"></div>
+        <div class="clear-content">
+          <span id="completed">Clear all completed</span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

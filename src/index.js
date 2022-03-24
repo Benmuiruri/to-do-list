@@ -1,92 +1,75 @@
 import './style.css';
 import Tick from './assets/tick-box.png';
 import ViewMore from './assets/view-more.png';
-import Refresh from './assets/refresh.png';
-import Enter from './assets/enter-key.png';
+import addNewTask from './add-task.js';
+import editTask from './edit-task.js';
+import { setStorage, getStorage } from './store-list.js';
+import Delete from './remove-task.js';
 
-const task1 = {
-  index: 0,
-  completed: true,
-  description: 'Wash the car',
-};
-const task2 = {
-  index: 1,
-  completed: true,
-  description: 'Wash the dishes',
-};
-const task3 = {
-  index: 2,
-  completed: true,
-  description: 'Wash the house',
-};
-const task4 = {
-  index: 3,
-  completed: true,
-  description: 'Finish project',
-};
-const task5 = {
-  index: 4,
-  completed: true,
-  description: 'Wash the car',
+const addTask = document.getElementById('add-new-task');
+const currentTasks = document.querySelector('.current-tasks');
+const logoImg = document.querySelector('.logo-img');
+
+// Add Img Logo
+const tickIcon = new Image();
+tickIcon.src = Tick;
+logoImg.appendChild(tickIcon);
+
+const tasks = getStorage();
+
+// Delete an item from local storage
+const removeIndex = (index) => {
+  setStorage(Delete.deleteOne(getStorage(), index));
+  populateTasks(getStorage()); // eslint-disable-line
 };
 
-const toDoList = [task1, task2, task3, task4, task5];
+const populateTasks = (arr) => {
+  currentTasks.innerHTML = '';
+  for (let i = 0; i <= arr.length; i += 1) {
+    // Add an item to local storage
+    const newDiv = document.createElement('div');
+    newDiv.className = 'to-do-item';
+    const tick = document.createElement('input');
+    const description = document.createElement('input');
+    description.className = 'task-description';
+    const menuImg = document.createElement('img');
+    menuImg.src = `${ViewMore}`;
+    tick.setAttribute('type', 'checkbox');
+    tick.id = `item${i}`;
+    newDiv.append(tick);
+    description.value = `${arr[i].description}`;
+    newDiv.append(description);
+    newDiv.append(menuImg);
+    currentTasks.appendChild(newDiv);
 
-function component() {
-  const container = document.createElement('div');
-  container.className = 'main-container';
-  const logoElement = document.createElement('div');
-  logoElement.className = 'logo-img';
-  const listDiv = document.createElement('div');
-  listDiv.className = 'list-div';
-  const listDivTitle = document.createElement('div');
-  listDivTitle.className = 'title';
-  const listTitle = document.createElement('h4');
-  listTitle.textContent = 'My To Do List';
-  listDivTitle.appendChild(listTitle);
-  listDiv.appendChild(listDivTitle);
-  const addTask = document.createElement('div');
-  addTask.className = 'add-task';
-  addTask.innerHTML = `
-  <input type="text" placeholder="Add a new task.." class="new-list-item add-item">
-  <img class="enter-key" src="${Enter}" alt="enter-key">
-  `;
-  listDiv.appendChild(addTask);
+    // Double click the input area to display the delete icon
+    description.addEventListener('dblclick', () => {
+      newDiv.classList.add('edit-mode');
+      newDiv.innerHTML = `<input type="checkbox" id="${i}"></input><input id = "update${i}" class="update" type="text" value = "${arr[i].description}"></input><i id="delete${i}" class="fas fa-trash-alt"></i>`;
+      document.getElementById(`update${i}`).focus();
+      document.getElementById(`delete${i}`).addEventListener('click', () => {
+        removeIndex(i);
+      });
+    });
+    document.body.addEventListener('click', (e) => {
+      // Update task on clicking body
+      if (!newDiv.contains(e.target) && document.getElementById(`update${i}`)) {
+        newDiv.classList.remove('edit-mode');
+        const arr = getStorage();
+        setStorage(editTask(arr, i));
+        populateTasks(editTask(arr, i));
+      }
+    });
+  }
+  setStorage(arr);
+};
 
-  // Add list icon
-  const tickIcon = new Image();
-  tickIcon.src = Tick;
-  logoElement.appendChild(tickIcon);
+// Add new task
+addTask.addEventListener('click', () => {
+  populateTasks(addNewTask(getStorage()));
+});
 
-  // Add refresh icon
-  const refereshIconDiv = document.createElement('div');
-  refereshIconDiv.className = 'refresh-icon';
-  const refreshIcon = new Image();
-  refreshIcon.src = Refresh;
-  refereshIconDiv.appendChild(refreshIcon);
-  listDivTitle.appendChild(refereshIconDiv);
-
-  toDoList.forEach((list) => {
-    const listItem = document.createElement('div');
-    listItem.className = 'to-do-item';
-    listItem.innerHTML = `
-          <input id="done" type="checkbox" value="done">
-          <input type="text" value="${list.description}" class="new-list-item">
-          <img class="view-more" src="${ViewMore}" alt="view-more">
-    `;
-    listDiv.appendChild(listItem);
-  });
-
-  const clearContent = document.createElement('div');
-  clearContent.className = 'clear-content';
-  clearContent.innerHTML = 'Clear all completed';
-  listDiv.appendChild(clearContent);
-
-  // Append elements to container
-  container.appendChild(logoElement);
-  container.appendChild(listDiv);
-
-  return container;
-}
-
-document.body.appendChild(component());
+// Display tasks
+document.addEventListener('DOMContentLoaded', () => {
+  populateTasks(tasks);
+});
