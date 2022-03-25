@@ -5,10 +5,12 @@ import addNewTask from './add-task.js';
 import editTask from './edit-task.js';
 import { setStorage, getStorage } from './store-list.js';
 import Delete from './remove-task.js';
+import completed from './completed-tasks.js';
 
 const addTask = document.getElementById('add-new-task');
 const currentTasks = document.querySelector('.current-tasks');
 const logoImg = document.querySelector('.logo-img');
+const clearCompleted = document.getElementById('completed');
 
 // Add Img Logo
 const tickIcon = new Image();
@@ -17,11 +19,18 @@ logoImg.appendChild(tickIcon);
 
 const tasks = getStorage();
 
-// Delete an item from local storage
+// Delete a task from local storage
 const removeIndex = (index) => {
   setStorage(Delete.deleteOne(getStorage(), index));
   populateTasks(getStorage()); // eslint-disable-line
 };
+
+// Delete all completed tasks from local storage
+
+clearCompleted.addEventListener('click', () => {
+  Delete.deleteAll(getStorage());
+  populateTasks(getStorage()); // eslint-disable-line
+});
 
 const populateTasks = (arr) => {
   currentTasks.innerHTML = '';
@@ -35,12 +44,18 @@ const populateTasks = (arr) => {
     const menuImg = document.createElement('img');
     menuImg.src = `${ViewMore}`;
     tick.setAttribute('type', 'checkbox');
-    tick.id = `item${i}`;
+    tick.id = i;
+    newDiv.id = `item${i}`;
     newDiv.append(tick);
     description.value = `${arr[i].description}`;
     newDiv.append(description);
     newDiv.append(menuImg);
     currentTasks.appendChild(newDiv);
+    // Check which checkboxes are clicked.
+    if (arr[i].completed === 'true') {
+      tick.checked = true;
+      newDiv.style.textDecoration = 'line-through';
+    }
 
     // Double click the input area to display the delete icon
     description.addEventListener('dblclick', () => {
@@ -51,11 +66,12 @@ const populateTasks = (arr) => {
         removeIndex(i);
       });
     });
+    // Update task on clicking body
     document.body.addEventListener('click', (e) => {
-      // Update task on clicking body
       if (!newDiv.contains(e.target) && document.getElementById(`update${i}`)) {
         newDiv.classList.remove('edit-mode');
         const arr = getStorage();
+        completed(editTask(arr, i));
         setStorage(editTask(arr, i));
         populateTasks(editTask(arr, i));
       }
@@ -67,6 +83,11 @@ const populateTasks = (arr) => {
 // Add new task
 addTask.addEventListener('click', () => {
   populateTasks(addNewTask(getStorage()));
+});
+
+// call completed function to update task status
+document.body.addEventListener('change', () => {
+  completed(getStorage());
 });
 
 // Display tasks

@@ -96,7 +96,18 @@ html {
   padding: 1.5em;
   font-size: 1.1rem;
   background-color: #f6f6f6;
-  text-decoration: underline;
+}
+
+.button {
+  background-color: #ad0d0d;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #f90707;
 }
 
 .task-description {
