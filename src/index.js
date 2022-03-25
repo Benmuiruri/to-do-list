@@ -28,7 +28,8 @@ const removeIndex = (index) => {
 // Delete all completed tasks from local storage
 
 clearCompleted.addEventListener('click', () => {
-  populateTasks(Delete.deleteAll(getStorage())); // eslint-disable-line
+  Delete.deleteAll(getStorage());
+  populateTasks(getStorage()); // eslint-disable-line
 });
 
 const populateTasks = (arr) => {
