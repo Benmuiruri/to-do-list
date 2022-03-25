@@ -4,7 +4,7 @@ import ViewMore from './assets/view-more.png';
 import addNewTask from './add-task.js';
 import editTask from './edit-task.js';
 import { setStorage, getStorage } from './store-list.js';
-import Delete from './remove-task.js';
+import Delete from './delete-task.js';
 import completed from './completed-tasks.js';
 
 const addTask = document.getElementById('add-new-task');
