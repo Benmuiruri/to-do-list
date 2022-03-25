@@ -12,19 +12,9 @@ export default class Delete {
 
   // Delete all completed tasks
   static deleteAll(arr) {
-    const completedTasks = [];
-    arr.forEach((element) => {
-      if (element.completed === 'true') {
-        completedTasks.push(element);
-      }
-    });
-    let counter = 0;
-    completedTasks.forEach((element) => {
-      arr.splice(element - counter, 1);
-      counter += 1;
-    });
+    arr = arr.filter((element) => element.completed !== true);
     for (let i = 0; i < arr.length; i += 1) {
-      arr[i].index = i;
+      arr[i].index = i + 1;
     }
     setStorage(arr);
     return arr;
