@@ -80,9 +80,16 @@ const populateTasks = (arr) => {
   setStorage(arr);
 };
 
-// Add new task
+// Add new task on click enter icon
 addTask.addEventListener('click', () => {
   populateTasks(addNewTask(getStorage()));
+});
+
+// Add new task on pressing enter key
+document.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    populateTasks(addNewTask(getStorage()));
+  }
 });
 
 // call completed function to update task status
