@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My To Do list</title>
-<script defer src="main.js"></script></head>
-<body>
-    <h1>Minimalist</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My To Do lists</title>
+    <script
+      src="https://kit.fontawesome.com/bc719f0ade.js"
+      crossorigin="anonymous"
+    ></script>
+  <script defer src="main.js"></script></head>
+  <body>
+    <h1 class="page-header">Minimalist</h1>
+    <div class="main-container">
+      <div class="logo-img"></div>
+      <div class="list-div">
+        <div class="title">
+          <h4>My To Do List</h4>
+          <div class="refresh-icon"></div>
+        </div>
+        <div class="add-task">
+          <input
+            required
+            type="text"
+            placeholder="Add a task..."
+            id="input-task"
+            class="new-list-item"
+          />
+        </div>
+        <div class="current-tasks"></div>
+        <div class="clear-content">
+          <a href="#" class="button" id="completed">Clear all completed</a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

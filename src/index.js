@@ -1,22 +1,37 @@
 import './style.css';
 import Tick from './assets/tick-box.png';
 import ViewMore from './assets/view-more.png';
+import Refresh from './assets/refresh.png';
+import Enter from './assets/enter-key.png';
 import addNewTask from './add-task.js';
 import editTask from './edit-task.js';
 import { setStorage, getStorage } from './store-list.js';
 import Delete from './delete-task.js';
 import completed from './completed-tasks.js';
 
-const addTask = document.getElementById('add-new-task');
 const currentTasks = document.querySelector('.current-tasks');
-const logoImg = document.querySelector('.logo-img');
+const logoImgDiv = document.querySelector('.logo-img');
+const refreshImgDiv = document.querySelector('.refresh-icon');
+const enterKeyImgDiv = document.querySelector('.add-task');
 const clearCompleted = document.getElementById('completed');
 
 // Add Img Logo
 const tickIcon = new Image();
 tickIcon.src = Tick;
-logoImg.appendChild(tickIcon);
+logoImgDiv.appendChild(tickIcon);
 
+// Add Refresh icon
+const refreshIcon = new Image();
+refreshIcon.src = Refresh;
+refreshImgDiv.appendChild(refreshIcon);
+
+// Add enter key icon
+const enterKeyIcon = new Image();
+enterKeyIcon.src = Enter;
+enterKeyIcon.setAttribute('id', 'add-new-task');
+enterKeyImgDiv.appendChild(enterKeyIcon);
+
+const addTask = document.getElementById('add-new-task');
 const tasks = getStorage();
 
 // Delete a task from local storage
@@ -80,9 +95,16 @@ const populateTasks = (arr) => {
   setStorage(arr);
 };
 
-// Add new task
+// Add new task on click enter icon
 addTask.addEventListener('click', () => {
   populateTasks(addNewTask(getStorage()));
+});
+
+// Add new task on pressing enter key
+document.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    populateTasks(addNewTask(getStorage()));
+  }
 });
 
 // call completed function to update task status
