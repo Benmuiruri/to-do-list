@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
     clean: true,
+    publicPath: '/to-do-list',
   },
   devtool: 'inline-source-map',
   devServer: {
