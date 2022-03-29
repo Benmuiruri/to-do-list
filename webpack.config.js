@@ -7,9 +7,9 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/to-do-list/',
     assetModuleFilename: 'images/[hash][ext][query]',
     clean: true,
-    publicPath: '/to-do-list/',
   },
   devtool: 'inline-source-map',
   devServer: {
