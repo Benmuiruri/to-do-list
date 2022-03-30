@@ -3,10 +3,9 @@
 <p align="center">Desktop view</p>
 <img src="./src/assets/to-do-list.png">
 
-<h1 align="center"> My Portlio Website </h1>
+<h1 align="center"> A simple To Do list Web App</h1>
 
-> The above screenshot shows how the To Do List will appear once it's finished.
-> Live Link coming soon once project is finished
+> The above screenshot shows the To Do List's UI. You can add a few items in your to-do list at this [link](https://benmuiruri.github.io/to-do-list/)
 
 ## Built With
 
@@ -36,7 +35,7 @@ To get a local copy up and running follow these setup steps below.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Benmuiruri/my-portfolio/issues).
+Feel free to check the [issues page](https://github.com/Benmuiruri/to-do-list/issues).
 
 ## Show your support
 
