@@ -35,3 +35,16 @@ describe('Add new task and retrieve test', () => {
     expect(getStorage().length).toBe(2);
   });
 });
+describe('Add latest task to DOM', () => {
+  test('should add new task to the DOM', () => {
+    setStorage(addNewTask(newTask));
+    expect(document.querySelector('.current-tasks').children.length).toBe(4);
+  });
+});
+describe('Delete item from local storage', () => {
+  test('should delete an item from local storage', () => {
+    let index;
+    setStorage(Delete.deleteOne(getStorage(), index));
+    expect(getStorage().length).toBe(2);
+  });
+});
