@@ -65,9 +65,8 @@ describe('Delete task from DOM', () => {
 describe('Edit task', () => {
   test('should edit task description', () => {
     setStorage(addNewTask(newTask));
-    const arr = getStorage();
-    setStorage(editTask(arr, 0));
-    expect(arr[0]).toEqual({
+    setStorage(editTask(getStorage(), 0));
+    expect(getStorage()[0]).toEqual({
       description: 'Go shopping',
       completed: false,
       index: 1,
@@ -77,14 +76,16 @@ describe('Edit task', () => {
 
 describe('Test delete all completed functionality', () => {
   test('should delete all completed tasks', () => {
-    const arr = getStorage();
-    arr.forEach((task) => {
+    getStorage().forEach((task) => {
       task.completed = true;
     });
-    // expect(arr[0].completed).toBe(true);
-    Delete.deleteAll(arr);
-    expect(arr.length).toBe(0);
-    // expect(getStorage().length).toBe(1);
+    // expect(getStorage()[0].completed).toBe(true);
+    Delete.deleteAll(getStorage());
+    expect(getStorage().length).toBe(0);
+
+    // expect(getStorage().length).toBe(0);
+    // setStorage(Delete.deleteOne(getStorage(), 2));
+    // expect(arr.length).toBe(0);
     // expect(addNewTask(newTask)).toEqual([
     //   {
     //     description: 'Code',
@@ -94,3 +95,6 @@ describe('Test delete all completed functionality', () => {
     // ]);
   });
 });
+// describe('Test marking task as completed', () => {
+//   test('should mark a task as completed', () => { second });
+// });
