@@ -83,3 +83,19 @@ describe('Test delete all completed functionality', () => {
     expect(getStorage().length).toBe(2);
   });
 });
+describe('Test marking task as completed', () => {
+  const checkbox = document.createElement('input');
+  checkbox.type = checkbox;
+  checkbox.checked = false;
+  test('should test a task completed == false by default', () => {
+    const firstTask = getStorage()[0];
+    completed(checkbox, firstTask);
+    expect(firstTask.completed).toBeFalsy();
+  });
+  test('checkbox should update a task completed to true', () => {
+    const task = getStorage()[0];
+    checkbox.checked = true;
+    completed(checkbox, task);
+    expect(task.completed).toBeTruthy();
+  });
+});
