@@ -1,4 +1,4 @@
 export default (arr, index) => {
-  arr[index].description = '';
+  arr[index].description = 'Go shopping';
   return arr;
 };
