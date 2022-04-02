@@ -7,12 +7,14 @@ import Delete from './delete-task.js';
 import { setStorage, getStorage } from './store-list.js';
 import populateTasks from './__mocks__/index.js';
 import editTask from './edit-task.js';
+import completed from './completed-tasks.js';
 
 jest.mock('./store-list.js');
 jest.mock('./index.js');
 jest.mock('./add-task.js');
 jest.mock('./delete-task.js');
 jest.mock('./edit-task.js');
+jest.mock('./completed-tasks.js');
 
 // Create the input that we shall add to the task list
 
@@ -81,6 +83,3 @@ describe('Test delete all completed functionality', () => {
     expect(getStorage().length).toBe(2);
   });
 });
-// describe('Test marking task as completed', () => {
-//   test('should mark a task as completed', () => { second });
-// });
