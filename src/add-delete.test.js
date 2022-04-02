@@ -76,23 +76,9 @@ describe('Edit task', () => {
 
 describe('Test delete all completed functionality', () => {
   test('should delete all completed tasks', () => {
-    getStorage().forEach((task) => {
-      task.completed = true;
-    });
-    // expect(getStorage()[0].completed).toBe(true);
+    getStorage()[0].completed = true;
     Delete.deleteAll(getStorage());
-    expect(getStorage().length).toBe(0);
-
-    // expect(getStorage().length).toBe(0);
-    // setStorage(Delete.deleteOne(getStorage(), 2));
-    // expect(arr.length).toBe(0);
-    // expect(addNewTask(newTask)).toEqual([
-    //   {
-    //     description: 'Code',
-    //     completed: false,
-    //     index: 1,
-    //   },
-    // ]);
+    expect(getStorage().length).toBe(2);
   });
 });
 // describe('Test marking task as completed', () => {
