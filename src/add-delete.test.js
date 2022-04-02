@@ -6,24 +6,26 @@ import addNewTask from './add-task.js';
 import Delete from './delete-task.js';
 import { setStorage, getStorage } from './store-list.js';
 import populateTasks from './__mocks__/index.js';
+import editTask from './edit-task.js';
 
 jest.mock('./store-list.js');
 jest.mock('./index.js');
 jest.mock('./add-task.js');
 jest.mock('./delete-task.js');
+jest.mock('./edit-task.js');
 
 // Create the input that we shall add to the task list
 
 const newTask = document.createElement('input');
 newTask.type = 'text';
-newTask.value = 'Code something';
+newTask.value = 'Code';
 
 describe('Add new task', () => {
   test('Should add new task', () => {
     setStorage([]);
     expect(addNewTask(newTask)).toEqual([
       {
-        description: 'Code something',
+        description: 'Code',
         completed: false,
         index: 1,
       },
@@ -59,3 +61,33 @@ describe('Delete task from DOM', () => {
     expect(document.querySelector('.current-tasks').children.length).toBe(3);
   });
 });
+
+describe('Edit task', () => {
+  test('should edit task description', () => {
+    setStorage(addNewTask(newTask));
+    const arr = getStorage();
+    setStorage(editTask(arr, 0));
+    expect(arr[0]).toEqual({
+      description: 'Go shopping',
+      completed: false,
+      index: 1,
+    });
+  });
+});
+
+// describe('Test delete all completed functionality', () => {
+//   test('should delete all completed tasks', () => {
+//     // getStorage().forEach((task) => {
+//     //   task.completed = true;
+//     // });
+//     Delete.deleteAll(getStorage());
+//     expect(getStorage().length).toBe(1);
+//     // expect(addNewTask(newTask)).toEqual([
+//     //   {
+//     //     description: 'Code',
+//     //     completed: false,
+//     //     index: 1,
+//     //   },
+//     // ]);
+//   });
+// });
